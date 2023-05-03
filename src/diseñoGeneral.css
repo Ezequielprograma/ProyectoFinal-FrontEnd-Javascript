@@ -1,11 +1,5 @@
-header{
-    height: 50px;
-}
 
-.logo{
-    width: 50px;
+.portada{
+    height: 330px;
+    width: 500px;
 }
-/*
-#menu>li:hover{
-    box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
-}*/

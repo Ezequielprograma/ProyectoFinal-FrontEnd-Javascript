@@ -7,20 +7,20 @@ import portada3 from './imagenes/portada3.jpg';
 
 class Inicio extends Component  {
   render(){
-    return (
-            <div id="carouselExample"  class="carousel slide" data-bs-ride="carousel">
+    return (      
+      <div id="carouselExample"  class="carousel slide" data-bs-ride="carousel">
         <div class="carousel-inner">
-          <div class=" carousel-item active">
-            <img src={portada3} class="d-block w-100" alt="..."/>
+          <div class="portada carousel-item active">
+            <img src={portada3} class="img-fluid d-block w-100" alt="..."/>
           </div>
-          <div class="carousel-item">
-            <img src={portada} class="d-block w-100" alt="..."/>
+          <div class="portada carousel-item">
+            <img src={portada} class="img-fluid d-block w-100" alt="..."/>
           </div>
-          <div class="carousel-item">
-            <img src={portada2} class="d-block w-100" alt="..."/>
+          <div class="portada carousel-item">
+            <img src={portada2} class="img-fluid d-block w-100" alt="..."/>
           </div>
         </div>
-      </div>   
+      </div> 
     );
   }
 }

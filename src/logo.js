@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
 import 'bootstrap/dist/css/bootstrap.css';
 import logo from './imagenes/logo.png';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faCoffee } from '@fortawesome/free-solid-svg-icons'
-import './diseñoGeneral.css';
+import './logo.css';
 
 class Logo extends Component  {
   render(){
@@ -11,7 +9,7 @@ class Logo extends Component  {
         
             <div class="d-flex">
               <img class="logo img-fluid"src={logo}/>
-              <h1 class="text-info">OYE</h1>
+              <h1 class="text-primary">OYE</h1>
             </div>
           
     );
