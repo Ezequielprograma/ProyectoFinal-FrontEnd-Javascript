@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import 'bootstrap/dist/css/bootstrap.css';
-import './diseñoGeneral.css';
+import '../index.css';
 
 class Menu extends Component  {
   render(){
@@ -12,10 +12,8 @@ class Menu extends Component  {
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNav">
                   <div class="navbar-nav">
-                    <a class="nav-link">inicio</a>
-                    <a class="nav-link">Canciones</a>
-                    <a class="nav-link">Iniciar sesion</a>
-                    <a class="nav-link">Registro</a>
+                    <a href='...'  class="nav-link">inicio</a>
+                    <a href='...'  class="nav-link">Canciones</a>
                   </div>
                 </div>
               </div>

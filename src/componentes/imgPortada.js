@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import 'bootstrap';
-import './inicio.css';
-import  portada from './imagenes/portada.jpeg';
-import portada2 from './imagenes/portada2.jpg';
-import portada3 from './imagenes/portada3.jpg';
+import '../index.css';
+import  portada from '../imagenes/portada.jpeg';
+import portada2 from '../imagenes/portada2.jpg';
+import portada3 from '../imagenes/portada3.jpg';
 
-class Inicio extends Component  {
+class ImgPortada extends Component  {
   render(){
     return (      
       <div id="carouselExample"  class="carousel slide" data-bs-ride="carousel">
@@ -25,4 +25,4 @@ class Inicio extends Component  {
   }
 }
 
-export default Inicio;
+export default ImgPortada;

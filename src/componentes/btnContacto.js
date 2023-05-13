@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import 'bootstrap/dist/css/bootstrap.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCircleXmark } from '@fortawesome/free-solid-svg-icons'
-import './btnContactos.css';
+import '../index.css';
 
 class BtnContacto extends Component {
 
@@ -15,14 +15,11 @@ class BtnContacto extends Component {
       modalisHidden: false
     })
   }
-
   ocultarModal = () => {
     this.setState({
       modalisHidden: true
     })
   }
-
-
   render() {
     if (this.state.modalisHidden) {
       return (
