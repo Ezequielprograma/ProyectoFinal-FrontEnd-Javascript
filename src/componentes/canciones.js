@@ -8,7 +8,8 @@ class Canciones extends Component {
       error: null,
       isLoaded: false,
       canciones: {},
-      
+      coincidencia: false,
+      cancionEncontrada: {},
     };
     
     this.Filtrar = this.Filtrar.bind(this)
@@ -30,31 +31,27 @@ fetch("http://192.168.0.101:3000/datos.json")
   }
 )
   }
-
-
-
+  
   Filtrar(e){
-    //console.log(e.target.value);
-    /*if(this.state.canciones[0].nombre.test(e.target.value)){
-      
-    console.log('true');
-    }else{console.log('false')}
-    */
-   var nuevo = RegExp(e.target.value)
-   console.log(nuevo)
-   if(RegExp(e.target.value).test(this.state.canciones[0].nombre)){
-      
-    console.log('true');
-    }else{console.log('false')}
-    /*
-    const canciones = this.state;
-    for (let index = 0; index < 10; index++) {
-      console.log(canciones[index].nombre.toString())
-    }*/
+  if(e.target.value.trim()===""){
+    this.setState({
+      coincidencia: false
+    });
+  }else{
+    
+    for (const p in this.state.canciones) {
+      if(RegExp(e.target.value).test(this.state.canciones[p].nombre)){   
+        this.setState({
+          coincidencia: true,
+          cancionEncontrada: this.state.canciones[p]
+        });
+      }
+    }  
+  }
 }
 
   render() {
-    const { error, isLoaded, canciones } = this.state;
+    const { error, isLoaded, canciones,coincidencia,cancionEncontrada } = this.state;
     if (error) {
       return <div>Error: {error.message}</div>;
     } else if (!isLoaded) {
@@ -63,32 +60,53 @@ fetch("http://192.168.0.101:3000/datos.json")
       return (
         <div class="container-fluid" >
             <div class="col m-5 d-flex align-items-center justify-content-center ">
-
                 <form>
                    <input  style={{width:"200px"}} type="text" name="Buscador" defaultValue={this.props.value} onChange={this.Filtrar}/>
                 </form>
-
-               
             </div>
-          <div class="col m-5 d-flex align-items-center justify-content-center">
-            <ul>
+            <div>
               {
-                canciones.map((cancion => ( 
-                  <li key={cancion.nombre}>
-                    <div>
-                      <h1>{cancion.nombre}</h1>
-                      <audio src={`../canciones/${cancion.ruta}`} controls></audio>
-                    </div>
-                  </li>
-                )
-                )
-                )
+                coincidencia ?
+                <div class="col m-5 d-flex align-items-center justify-content-center">
+                <ul>
+                  {
+                   <ul>
+                    <li>
+                        <div>
+                          <h1>{cancionEncontrada.nombre}</h1>
+                          <audio src={`../canciones/${cancionEncontrada.ruta}`} controls></audio>
+                        </div>
+                      </li>
+                   </ul>
+                  }
+                </ul>
+              </div>
+                :
+                <div class="col m-5 d-flex align-items-center justify-content-center">
+                <ul>
+                  {
+                    canciones.map((cancion => ( 
+                      <li key={cancion.nombre}>
+                        <div>
+                          <h1>{cancion.nombre}</h1>
+                          <audio src={`../canciones/${cancion.ruta}`} controls></audio>
+                        </div>
+                      </li>
+                    )
+                    )
+                    )
+                  }
+                </ul>
+              </div>
               }
-            </ul>
-          </div>
+            </div>
+
+
+         
         </div>
       );
     }
   }
 }
 export default Canciones;
+
