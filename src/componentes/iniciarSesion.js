@@ -5,11 +5,11 @@ import '../index.css';
 class IniciarSesion extends Component {
     render(){
         return(
-                 <div>
-                    <h1>IniciarSesion</h1>
+                <div className='m-5 p-5 shadow bg-info-subtle'>
+                    <h1>Iniciar Sesión</h1>
                     <form action="">
                         <p>
-                            <label>Correo Electronico *</label>
+                            <label>Correo Electrónico *</label>
                             <input type="text" name="correo electronico" id="email_inicioSesion"/>
                         </p>
                         

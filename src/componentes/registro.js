@@ -8,18 +8,19 @@ class Registro extends Component {
     constructor(props){
         super(props);
         this.state = {
+            completado: false,
             email:'',
-            emailVerificado: false,
+            error_email: 'none',
             clave:'',
-            claveVerificada: false,
+            error_clave: 'none',
             claveConf:'',
-            claveConfVerificada: false,
-            grupo: '',
-            grupoVerificado: false,
+            error_claveConf: 'none',
+            grupo: 0,
+            error_grupo: 'none',
             edad: 0,
-            edadVerificada: false,
-            terminos: 1,
-            termCondVerificado: false
+            error_edad: 'none',
+            terminos: false,
+            error_terminos: 'none'
         }
 
         this.cambiarEdad = this.cambiarEdad.bind(this)
@@ -33,121 +34,114 @@ class Registro extends Component {
         //Verificación Correo electrónico
         if (!re.test(this.email.value.trim())) {
             this.setState({
-                emailVerificado: false
+                error_email: 'block'
             })
-           
+            return false
         }else{
             this.setState({
                 email: this.email.value,
-                emailVerificado: true
-            })
-            
+                error_email: 'none'
+            })  
         }
 
         //Verificación Contraseña
-        if (this.clave.value.length >= 1 && this.clave.value.length <= 8) {
-           
+        if (this.clave.value.length <= 7) {
             this.setState({
-                clave: this.clave.value,
-                claveVerificada: true
+                error_clave: 'block'
             })
-           
-          
+            return false
         }else{
             this.setState({
-                claveVerificada: false
+                clave: this.clave.value,
+                error_clave: 'none'
             })
-          
         }
   
-
         //Verificación  confirmación de Contraseña
-        if(this.claveConf.value !== this.clave.value){
+        if(this.claveConf.value == this.clave.value){
             this.setState({
-                claveConfVerificada: false
+                error_claveConf: 'none'
             })
-        
         }else{
             this.setState({
                 claveConf: this.claveConf.value,
-                claveConfVerificada: true
+                error_claveConf: 'block'
             })
+            return false
         }
-        console.log(this.claveConf.value)
-
+       
         //Verificación de genero Musical
         if(this.state.grupo >= 1 && this.state.grupo <= 4){
             this.setState({
-                grupoVerificado: true
+                error_grupo: 'none'
             })
         }else{
             this.setState({
-                grupoVerificado: false
-            })
-            
+                error_grupo: 'block'
+            }) 
+            return false
         }
 
         //Verificación de edad
         if(this.state.edad >= 1 && this.state.edad <= 3){
             this.setState({
-                edadVerificada:true
+                error_edad: 'none'
             })
         }else{
             this.setState({
-                edadVerificada:false
+                error_edad: 'block'
             })
-            
+            return false
         }
 
         //Verificación de términos y condiciones
         if(!this.state.terminos){
+            this.setState({
+                error_terminos: 'block'
+            })
             return false
         }else{
             this.setState({
-                termCondVerificado: true
+                error_terminos: 'none'
             })
         }
 
-        if(
-        this.state.emailVerificado === true &&
-        this.state.claveVerificada=== true &&
-        this.state.claveConfVerificada=== true &&
-        this.state.grupoVerificado=== true &&
-        this.state.edadVerificada=== true &&
-        this.state.termCondVerificado=== true
-        ){
+       if(this.state.error_email == 'none' && this.state.error_clave == 'none' && this.state.error_claveConf == 'none'
+        && this.state.error_grupo == 'none' && this.state.error_edad == 'none' && this.state.error_terminos == 'none' ){
             alert("Registro Exitoso")
-        }else{
-            return false;
+            return true
         }
        
     }
 
+    cambiarGrupo = () =>{
+        this.setState({
+            grupo: this.grupo.value
+        })
+    }
+
     cambiarEdad(e){
+
         this.setState({
             edad: e.target.value
         })
-        console.log(e.target.value)
     }
 
     cambiarTerminos = () => {
-        if(this.state.terminos){
+        if(!this.state.terminos){
             this.setState({
-                terminos: false
-            })
-            
+                terminos:true
+               })
         }else{
             this.setState({
-                terminos: true
-            })
-            
+                terminos:false
+               })
         }
-         
     }
 
     render(){
         return (
-            <div className=' border rounded login m-5 container login'>
+            <div className='rounded shadow login m-5 col-auto p-5 d-flex flex-column justify-content-center bg-info-subtle login'>
                 
                 <h2>Registro</h2>
 
@@ -156,33 +150,33 @@ class Registro extends Component {
                     <div className="input-group pb-3">                        
                         <div className=' d-flex flex-column'>
                             <input id='usuario'  className="form-control" type="text" placeholder="correo Electrónico" ref={input => this.email = input}/>
-                        {!this.state.emailVerificado && <p>Email incorrecto</p>} 
+                            <div style={{display: this.state.error_email}}><p>El correo electrónico no cumple con los requisitos.</p></div> 
                         </div> 
                     </div>
 
                     <div className="input-group pb-3">
                         <div className='d-flex flex-column'>
                         <input id='clave' className="form-control" type="password" placeholder="contraseña" ref={input => this.clave = input}/>
-                        {!this.state.claveVerificada  && <p>Clave incorrecta</p>} 
+                        <div style={{display: this.state.error_clave}}><p>La clave no cumple los requisitos. Debe tener 8 o mas digitos.</p></div> 
                         </div>   
                     </div>
 
                     <div className="input-group pb-3">
                         <div className='d-flex flex-column'>
                         <input id='clave2' className="form-control" type="password" placeholder="confirmar contraseña" ref={input => this.claveConf = input}/>
-                        {!this.state.claveConfVerificada && <p>Claves incorrecta</p>} 
+                        <div style={{display: this.state.error_claveConf}}><p>La clave no coincide, o no cumple los requisitos.</p></div>
                         </div>   
                     </div>
 
                     <div className='input-group pb-3'>
-                        <select class="form-select form-select-sm" aria-label=".form-select-sm example"  ref={select => this.grupo = select}>
+                        <select class="form-select form-select-sm" aria-label=".form-select-sm example"  ref={select => this.grupo = select} onChange={this.cambiarGrupo}>
                             <option value="0" selected>Genero Musical Favorito</option>
                             <option value="1">Balada</option>
                             <option value="2">Rock</option>
                             <option value="3">Salsa</option>
                             <option value="4">Otro</option>
                         </select>
-                        {!this.state.grupoVerificado && <p>Debe seleccionar un grupo</p>} 
+                        <div style={{display: this.state.error_grupo}}><p>Debe seleccionar un grupo.</p></div>
                     </div>
 
                     <div>
@@ -201,15 +195,12 @@ class Registro extends Component {
                             <input class="form-check-input" type="radio" value="3" name="flexRadioDefault" id="flexRadioDefault3" onChange={this.cambiarEdad} checked={this.state.edad==3 ? true : false}/>
                             <label class="form-check-label" for="flexRadioDefault3">Mayor a 50</label>
                         </div>
-                        <div>
-                        {!this.state.edadVerificada && <p>Debe seleccionar una edad</p>}
-                        </div>
-                        
+                        <div style={{display: this.state.error_edad}}><p>Debe seleccionar una edad.</p></div>
                     </div> 
 
                     <div>    
                         <label for="terminos"><input type="checkbox" name="terminos" id="terminos" onClick={this.cambiarTerminos}/>Aceptar términos y condiciones</label> 
-                        {!this.state.termCondVerificado && <p> Debe acepte los términos y condiciones</p>} 
+                        <div style={{display: this.state.error_terminos}}><p> Debe acepte los términos y condiciones.</p></div>
                     </div>
                     
                     <div className='btn-group pb-3'>
@@ -224,3 +215,4 @@ class Registro extends Component {
 }
 
 export default Registro;
+

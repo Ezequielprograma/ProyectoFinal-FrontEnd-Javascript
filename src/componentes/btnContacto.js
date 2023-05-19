@@ -8,7 +8,10 @@ class BtnContacto extends Component {
 
   constructor() {
     super();
-    this.state = { modalisHidden: true };
+    this.state = {
+       modalisHidden: true,
+       
+      };
   }
   mostrarModal = () => {
     this.setState({
@@ -23,17 +26,14 @@ class BtnContacto extends Component {
   render() {
     if (this.state.modalisHidden) {
       return (
-        <div>
-          <button type="button" class="btn btn-primary btn-sm" onClick={this.mostrarModal}>Contacto</button>
+        <div className='d-flex align-content-center shadow-sm px-2 py-2'>
+          <button type="button" class="btn btn-primary " onClick={this.mostrarModal}>Contacto</button>
         </div>
       )
     } else {
       return (
-        <div>
-
-          <div id='modal-container' class=" container-fluid">
-
-
+       
+          <div id='modal-container' className=" container-fluid" >
             <div id='modal-window' class=' row bg-white  bg-text-info'>
               <div class='col-12 border-start'>
                 <div  class='d-flex pt-2 justify-content-end'>
@@ -44,6 +44,7 @@ class BtnContacto extends Component {
               <div class='col-12 '>
                 <p>Email:<b>eze1506@live.com.ar</b></p>
                 <p>Telefono de contacto: <b>11-4437-3532</b></p>
+              
               </div>
               <div class='col-12'>
                 <div class='d-flex pt-1 justify-content-end'>
@@ -52,8 +53,10 @@ class BtnContacto extends Component {
               
               </div>
             </div>
-          </div>
-        </div>)
+        
+        </div>
+       
+          )
     }
   }
 }

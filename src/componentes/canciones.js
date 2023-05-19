@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import 'bootstrap/dist/css/bootstrap.css';
+import PiePagina from './pie';
 
 class Canciones extends Component {
   constructor(props) {
@@ -58,8 +59,10 @@ fetch("http://192.168.0.101:3000/datos.json")
       return <div>Loading...</div>;
     } else {
       return (
-        <div class="container-fluid" >
-            <div class="col m-5 d-flex align-items-center justify-content-center ">
+
+        <div class="m-5 p-5 shadow bg-info-subtle" >
+            <div class="col-auto d-flex flex-column align-items-center justify-content-center ">
+              <h1>Canciones</h1>
                 <form>
                    <input  style={{width:"200px"}} type="text" name="Buscador" defaultValue={this.props.value} onChange={this.Filtrar}/>
                 </form>
@@ -73,7 +76,7 @@ fetch("http://192.168.0.101:3000/datos.json")
                    <ul>
                     <li>
                         <div>
-                          <h1>{cancionEncontrada.nombre}</h1>
+                          <p>{cancionEncontrada.nombre}</p>
                           <audio src={`../canciones/${cancionEncontrada.ruta}`} controls></audio>
                         </div>
                       </li>
@@ -82,7 +85,7 @@ fetch("http://192.168.0.101:3000/datos.json")
                 </ul>
               </div>
                 :
-                <div class="col m-5 d-flex align-items-center justify-content-center">
+                <div class="col m-5 d-flex align-items-center justify-content-center bg-info-subtle">
                 <ul>
                   {
                     canciones.map((cancion => ( 
@@ -100,6 +103,7 @@ fetch("http://192.168.0.101:3000/datos.json")
               </div>
               }
             </div>
+            
 
 
          
