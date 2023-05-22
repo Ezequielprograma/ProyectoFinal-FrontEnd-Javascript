@@ -8,7 +8,7 @@ class Logo extends Component  {
     return (
       <div class="d-flex">
         <img alt='logo' class="logo img-fluid"src={logo}/>
-        <h1 className="text-primary my-auto">OYE</h1>
+        <h1 className="text-primary text-bg-primary-subtle my-auto">OYE</h1>
       </div>
     );
   }

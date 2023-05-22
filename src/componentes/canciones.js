@@ -16,7 +16,7 @@ class Canciones extends Component {
     this.Filtrar = this.Filtrar.bind(this)
   }
   componentDidMount() {      
-fetch("http://192.168.0.101:3000/datos.json")
+fetch("http://192.168.0.181:3000/datos.json")
 .then(res => res.json())
 .then((result) => {
   this.setState({

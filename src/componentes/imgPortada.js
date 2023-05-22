@@ -7,20 +7,23 @@ import portada3 from '../imagenes/portada3.jpg';
 
 class ImgPortada extends Component  {
   render(){
-    return (      
-      <div id="carouselExample"  class="carousel slide" data-bs-ride="carousel">
+    return (   
+      <div className=' d-flex justify-content-center'>
+        <div id="carouselExample"  class="carousel slide my-3" data-bs-ride="carousel">
         <div class="carousel-inner">
-          <div class="portada carousel-item active">
+          <div class=" carousel-item active">
             <img src={portada3} class="img-fluid d-block w-100" alt="..."/>
           </div>
-          <div class="portada carousel-item">
+          <div class="carousel-item">
             <img src={portada} class="img-fluid d-block w-100" alt="..."/>
           </div>
-          <div class="portada carousel-item">
+          <div class="carousel-item">
             <img src={portada2} class="img-fluid d-block w-100" alt="..."/>
           </div>
         </div>
       </div> 
+      </div>   
+      
     );
   }
 }

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import 'bootstrap/dist/css/bootstrap.css';
+import '../index.css';
 
 
 class Top3 extends Component {
@@ -15,7 +16,7 @@ class Top3 extends Component {
 
   componentDidMount() { 
        
-fetch("http://192.168.0.101:3000/datos.json")
+fetch("http://192.168.0.181:3000/datos.json")
 
 .then(res => res.json())
 
@@ -25,9 +26,7 @@ fetch("http://192.168.0.101:3000/datos.json")
     isLoaded: true,
     canciones: result.canciones.sort((x, y) => y.reproducciones - x.reproducciones),
   });
-
 },
-
   (error) => {
     this.setState({
       isLoaded: true,
@@ -47,22 +46,49 @@ fetch("http://192.168.0.101:3000/datos.json")
     } else {
       const topCanciones = [canciones[0], canciones[1], canciones[2]];
       return (
-        <div class="container-fluid" >
-          <div class="row">
-            <div class="col mt-5 d-flex align-items-center justify-content-center">
-              <h1>top 3</h1>
-
+        <div class="col d-flex flex-column align-items-center justify-content-center" >
+            <ul className='p-0 w-100'>    
+                  <hr/>
+                  <h1 className=' text-center'>top 3</h1>
+                {
+                  topCanciones.map((cancion => (  
+                    <li key={cancion.nombre}>
+                      <div>
+                        <hr/>
+                        <p>{cancion.nombre}</p>
+                        <audio src={`../canciones/${cancion.ruta}`} controls></audio>
+                      </div>
+                    </li>
+                  )))
+                }
+            </ul>
+        </div>
+      );
+    }
+  }
+}
+export default Top3;
+/*
+<div class="container-fluid" >
+        
+          <div class="col m-5 d-flex flex-column align-items-center justify-content-center">
+            <ul className=' w-100'>
+                 
+            <hr/>
+            <div className='d-flex justify-content-center'>
+            <h1>top 3</h1>
             </div>
-          </div>
-          <div class="col m-5 d-flex align-items-center justify-content-center">
-            <ul>
+           
+          
+         
               {
                 
                 topCanciones.map((cancion => (
                   
                   <li key={cancion.nombre}>
                     <div>
-                      <h1>{cancion.nombre}</h1>
+                      <hr/>
+                      <p>{cancion.nombre}</p>
                       <audio src={`../canciones/${cancion.ruta}`} controls></audio>
                     </div>
                   </li>
@@ -72,10 +98,4 @@ fetch("http://192.168.0.101:3000/datos.json")
               }
             </ul>
           </div>
-        </div>
-      );
-    }
-  }
-}
-export default Top3;
-
+        </div>*/

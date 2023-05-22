@@ -7,6 +7,7 @@ import Registro from './registro';
 import IniciarSesion from './iniciarSesion';
 import Menu from './menu';
 import PiePagina from './pie';
+import '../index.css'
 
 class Oye extends Component  {
 
@@ -55,15 +56,15 @@ class Oye extends Component  {
 
     return (
       <div className = "container-fluid p-0">
-        <header>
+        <header className='col'>
           <Menu elegirPagina={this.elegirPagina}/>      
         </header>
-       <section className='d-flex justify-content-center'>
+       <section className='row d-flex justify-content-center  p-0 mx-0'>
         {
           seleccion_pagina == 'inicio' ? <Inicio/> : (seleccion_pagina == 'canciones' ? <Canciones/> : (seleccion_pagina == 'inicioSesion'? <IniciarSesion/> : <Registro/>))
         }
        </section>
-        <footer >
+        <footer className='d-none' >
           <PiePagina/>
         </footer>
     </div>

@@ -3,7 +3,7 @@ body {
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
     font-family: 'Montserrat Alternates', sans-serif;
-  height: auto;
+    height: auto;
 }
 
 code {
@@ -22,35 +22,27 @@ code {
   align-items: center;
   height: 100%;
   width: 100%;
-  }
+}
 
 #modal-window{
   height: 300px;
   width: 500px;
-  }
+}
 
 #boton-cerrar{
      height: 20px;
      width: 20px;
      cursor: pointer;
-  }
-  
-.portada{
-  height: 330px;
-  width: 500px;
 }
-
+  
 header{
   height: 50px;
+  width: 100%;
 }
 
 .logo{
   width: 50px;
   height: 50px;
-}
-
-.portada-section{
-  height: 30%
 }
 
 h1, h2{
@@ -59,7 +51,23 @@ h1, h2{
   font-family: 'Cinzel', serif;
 }
 
+button{
+  width: max-content;
+}
 
-.inicio{
-  height: 700px;
+li{list-style: none;}
+
+@media screen and (min-width: 501px){
+ #carouselExample {
+  height: 300px;
+  width: 500px;
+ }
+
+ #carouselExample img {
+  height: 300px;
+  width: 500px;
+ }
+
+ 
+
 }

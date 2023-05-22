@@ -48,7 +48,8 @@ class BtnContacto extends Component {
               </div>
               <div class='col-12'>
                 <div class='d-flex pt-1 justify-content-end'>
-                <button type="button" onClick={this.ocultarModal} class="btn fa-mouse-pointer btn-primary btn-sm">Cerrar</button>
+                <button type="button" onClick={this.ocultarModal} class="btn fa-mouse-pointer 
+                 btn-sm">Cerrar</button>
                 </div>
               
               </div>
