@@ -51,7 +51,6 @@ class BtnContacto extends Component {
                 <button type="button" onClick={this.ocultarModal} class="btn fa-mouse-pointer 
                  btn-sm">Cerrar</button>
                 </div>
-              
               </div>
             </div>
         

@@ -5,12 +5,14 @@ import '../index.css';
 class PiePagina extends Component  {
   render(){
     return (
-    <div className='d-flex justify-content-between bg-info-subtle align-content-center px-2'>
-      <p>Comparte la Musica</p>    
-      <p>© Derechos reservados</p>
+    <div className='row bg-info-subtle text-dark justify-content-between'>
+      <p className='w-auto d-none d-sm-block'>Comparte la Musica</p>    
+      <p className='w-auto'>© Derechos reservados</p>
     </div>
     );
   }
 }
 
 export default PiePagina;
+
+

@@ -41,7 +41,7 @@ fetch("http://localhost:3000/datos.json")
   }else{
     
     for (const p in this.state.canciones) {
-      if(RegExp(e.target.value).test(this.state.canciones[p].nombre)){   
+      if(RegExp(e.target.value.toLowerCase()).test(this.state.canciones[p].nombre)){   
         this.setState({
           coincidencia:true,
           cancionEncontrada: this.state.canciones[p]

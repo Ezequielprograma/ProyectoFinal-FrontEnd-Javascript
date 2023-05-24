@@ -17,7 +17,6 @@ class Icono extends Component {
   }
 
   componentDidUpdate(prevProps) {
-    // Typical usage (don't forget to compare props):
     if (this.props.numero !== prevProps.numero) {
       this.setState(
         {

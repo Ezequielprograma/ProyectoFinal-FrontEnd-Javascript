@@ -1,12 +1,10 @@
 import React, { Component } from 'react';
 import "bootstrap/dist/css/bootstrap.css";
-import "bootstrap/dist/css/bootstrap.min.css";
 import Inicio  from './inicio';
 import Canciones from './canciones';
 import Registro from './registro';
 import IniciarSesion from './iniciarSesion';
 import Menu from './menu';
-import PiePagina from './pie';
 import '../index.css'
 
 class Oye extends Component  {
@@ -51,22 +49,15 @@ elegirPagina = (e) => {
     }
 
   render(){
-    
     const {seleccion_pagina} = this.state
-
     return (
-      <div className = "container-fluid p-0  h-auto">
-        <header className='col'>
+    <div id='oye'>
+        <header className='z-1'>
           <Menu elegirPagina={this.elegirPagina}/>      
         </header>
-       <section className='row d-flex justify-content-center  p-0 mx-0'>
-        {
-          seleccion_pagina == 'inicio' ? <Inicio  elegirPagina={this.elegirPagina}/> : (seleccion_pagina == 'canciones' ? <Canciones/> : (seleccion_pagina == 'inicioSesion'? <IniciarSesion/> : <Registro/>))
-        }
+       <section className='d-flex justify-content-center w-100 m-0 p-0'>
+        {seleccion_pagina === 'inicio' ? <Inicio  elegirPagina={this.elegirPagina}/> : (seleccion_pagina === 'canciones' ? <Canciones/> : (seleccion_pagina === 'inicioSesion'? <IniciarSesion/> : <Registro/>))}
        </section>
-       
-        <PiePagina/>
-      
     </div>
     );
   }
