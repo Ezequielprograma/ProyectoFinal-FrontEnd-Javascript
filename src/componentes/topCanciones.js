@@ -16,7 +16,7 @@ class Top3 extends Component {
 
   componentDidMount() { 
        
-fetch("http://192.168.0.181:3000/datos.json")
+fetch("http://localhost:3000/datos.json")
 
 .then(res => res.json())
 
@@ -46,7 +46,7 @@ fetch("http://192.168.0.181:3000/datos.json")
     } else {
       const topCanciones = [canciones[0], canciones[1], canciones[2]];
       return (
-        <div class="col d-flex flex-column align-items-center justify-content-center" >
+        <div class="w-100 d-flex flex-column align-items-center justify-content-center" >
             <ul className='p-0 w-100'>    
                   <hr/>
                   <h1 className=' text-center'>top 3</h1>

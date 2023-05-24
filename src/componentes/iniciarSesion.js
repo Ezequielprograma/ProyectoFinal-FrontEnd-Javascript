@@ -5,22 +5,26 @@ import '../index.css';
 class IniciarSesion extends Component {
     render(){
         return(
-                <div className='m-5 p-5 shadow bg-info-subtle'>
+                <div className='w-auto mt-5 p-3 shadow bg-info-subtle d-flex flex-column text-center'>
                     <h1>Iniciar Sesión</h1>
-                    <form action="">
-                        <p>
-                            <label>Correo Electrónico *</label>
-                            <input type="text" name="correo electronico" id="email_inicioSesion"/>
-                        </p>
+                    <form className='text-start p-2'>
+                        <div class="input-group input-group-lg mb-3">
+                            <span class="input-group-text">Correo Electrónico *</span>
+                            <input type="text" class="form-control" name="correo electronico" id="email_inicioSesion"/>
+                        </div>
+                           
+                    
                         
-                        <p>
-                            <label>Contraseña *</label>
-                            <input type="text" name="contraseña" id="contraseña_inicioSesion"/>
-                        </p>
+                        <div class="input-group input-group-lg mb-3">
+                            <span class="input-group-text">Contraseña *</span>
+                            <input type="text" class="form-control" name="contraseña" id="contraseña_inicioSesion"/>
+                        </div>
 
-                        <p>
-                            <input type="submit" value="Continuar"/>
-                        </p>
+                        <div className='d-flex justify-content-center'>
+                            <input type="submit" class="btn btn-dark" value="Continuar"/>
+                        </div>
+                          
+                        
                     </form>
                  </div>         
         )

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import "bootstrap/dist/css/bootstrap.css";
-import "bootstrap/dist/css/bootstrap.min.css"
+import "bootstrap/dist/css/bootstrap.min.css";
 import Inicio  from './inicio';
 import Canciones from './canciones';
 import Registro from './registro';
@@ -15,10 +15,10 @@ class Oye extends Component  {
         super(props);
         this.state = {
           seleccion_pagina: 'inicio',
-        };
+    };
   }
 
-    elegirPagina = (e) => {
+elegirPagina = (e) => {
       switch (e) {
         case 'inicio':
           this.setState({
@@ -55,18 +55,18 @@ class Oye extends Component  {
     const {seleccion_pagina} = this.state
 
     return (
-      <div className = "container-fluid p-0">
+      <div className = "container-fluid p-0  h-auto">
         <header className='col'>
           <Menu elegirPagina={this.elegirPagina}/>      
         </header>
        <section className='row d-flex justify-content-center  p-0 mx-0'>
         {
-          seleccion_pagina == 'inicio' ? <Inicio/> : (seleccion_pagina == 'canciones' ? <Canciones/> : (seleccion_pagina == 'inicioSesion'? <IniciarSesion/> : <Registro/>))
+          seleccion_pagina == 'inicio' ? <Inicio  elegirPagina={this.elegirPagina}/> : (seleccion_pagina == 'canciones' ? <Canciones/> : (seleccion_pagina == 'inicioSesion'? <IniciarSesion/> : <Registro/>))
         }
        </section>
-        <footer className='d-none' >
-          <PiePagina/>
-        </footer>
+       
+        <PiePagina/>
+      
     </div>
     );
   }

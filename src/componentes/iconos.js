@@ -4,6 +4,7 @@ import icon_1 from '../imagenes/icon_1.svg';
 import icon_2 from  '../imagenes/icon_2.svg';
 import icon_3 from  '../imagenes/icon_3.svg';
 import icon_4 from  '../imagenes/icon_4.svg';
+import '../index.css';
 
 
 
@@ -14,21 +15,33 @@ class Icono extends Component {
       numero: props.numero
     };
   }
+
+  componentDidUpdate(prevProps) {
+    // Typical usage (don't forget to compare props):
+    if (this.props.numero !== prevProps.numero) {
+      this.setState(
+        {
+          numero: this.props.numero
+        }
+      )
+    }
+  }
+
  
   render() {
-
+   
     switch (this.state.numero) {
         case 1:
-          return( <img src={icon_1} class="img-fluid d-block w-100" alt="..."/>)
+          return( <img src={icon_1} class="icono" alt="..."/>)
           break;
         case 2:
-            return( <img src={icon_2} class="img-fluid d-block w-100" alt="..."/>)
+            return( <img src={icon_2} class="icono" alt="..."/>)
           break;
         case 3:
-            return( <img src={icon_3} class="img-fluid d-block w-100" alt="..."/>)
+            return( <img src={icon_3} class="icono" alt="..."/>)
           break;
         case 4:
-            return( <img src={icon_4} class="img-fluid d-block w-100" alt="..."/>)
+            return( <img src={icon_4} class="icono" alt="..."/>)
           break;
       
         default:

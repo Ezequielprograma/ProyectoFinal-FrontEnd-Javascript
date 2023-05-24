@@ -27,7 +27,7 @@ class BtnContacto extends Component {
     if (this.state.modalisHidden) {
       return (
         <div className='d-flex align-content-center shadow-sm px-2 py-2'>
-          <button type="button" class="btn btn-primary " onClick={this.mostrarModal}>Contacto</button>
+          <button type="button" class="btn btn-dark" onClick={this.mostrarModal}>Contacto</button>
         </div>
       )
     } else {

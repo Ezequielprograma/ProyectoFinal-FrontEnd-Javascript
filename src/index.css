@@ -3,7 +3,7 @@ body {
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
     font-family: 'Montserrat Alternates', sans-serif;
-    height: auto;
+    
 }
 
 code {
@@ -45,6 +45,15 @@ header{
   height: 50px;
 }
 
+.contenedor-cancion{
+   width: min-content;
+}
+
+.icono{
+  width: 250px;
+  height: 250px;
+}
+
 h1, h2{
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -68,6 +77,45 @@ li{list-style: none;}
   width: 500px;
  }
 
- 
-
 }
+
+@media screen and (min-width: 1201px){
+  #text_Portada{
+      width: 500px;
+  }
+  #contenedor_inicio{
+    width: min-content;
+  }
+
+  #SongsContainerMaster{
+    width: 1000px;
+  }
+}
+
+footer {
+  background-color: black;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 40px;
+  color: white;
+}
+
+@media screen and (min-width: 576px){
+  #SongsContainer{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content:space-between;
+    width: auto;
+  }
+  
+}
+
+
+#SongsBox{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  }

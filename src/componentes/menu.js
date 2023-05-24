@@ -16,12 +16,11 @@ class Menu extends Component  {
             registro:'registro',
             iniciarSesion:'inicioSesion'
         }
-       
     }
 
   render(){
 
-    const {elegirPagina} = this.props
+   const {elegirPagina} = this.props
 
     return (
 
@@ -39,7 +38,7 @@ class Menu extends Component  {
                     <a class="nav-link active" aria-current="page" href="#" onClick={() => elegirPagina(this.state.inicio)}>Inicio</a>
                     <a class="nav-link" href="#" onClick={() => elegirPagina(this.state.canciones)}>Canciones</a>
                     <a class="nav-link" href="#" onClick={() => elegirPagina(this.state.iniciarSesion)}>Iniciar Sesión</a>
-                    <a class="nav-link"  onClick={() => elegirPagina(this.state.registro)}>Registro</a>
+                    <a class="nav-link" href="#"  onClick={() => elegirPagina(this.state.registro)}>Registro</a>
                     <span className='d-md-none'>
                     <BtnContacto type="button"/>  
                     </span>
